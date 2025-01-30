@@ -67,99 +67,8 @@
         padding: 6px 0;
         position: relative;
       }
-      .w50 .file_list li {
-        float: left;
-        width: 31%;
-        margin-right: 2%;
-      }
-      .w50 .file_list li span.sha {
-        display: none;
-      }
-      .file_list li:before {
-        content: "其他";
-        background: #1b1b1b;
-        color: #fff;
-        min-width: 40px;
-        padding: 0 10px;
-        line-height: 26px;
-        height: 26px;
-        font-size: 13px;
-        margin-right: 8px;
-        text-align: center;
-        border-radius: 3px;
-      }
-      .file_list li.dir:before {
-        content: "文件夹";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.img:before {
-        content: "图片";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.video:before {
-        content: "视频";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.music:before {
-        content: "音频";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.code:before {
-        content: "代码";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.zip:before {
-        content: "压缩包";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.doc:before {
-        content: "Word";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.xls:before {
-        content: "Excel";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.ppt:before {
-        content: "PPT";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.pdf:before {
-        content: "PDF";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li.txt:before {
-        content: "文本";
-        background: #ff9000;
-        color: #000;
-      }
-      .file_list li img {
-        margin-right: 6px;
-        display: inline-block;
-        vertical-align: middle;
-      }
-      .file_list li a {
-        flex: 1;
-        color: #fff;
-        text-decoration: none;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .file_list li .size {
-        margin: 0 10px;
-        color: #666;
-        font-size: 13px;
+      .file_list li:hover {
+        background: rgba(255, 144, 0, 0.1);
       }
       .file_list li .del {
         cursor: pointer;
@@ -169,6 +78,7 @@
         display: inline-flex;
         align-items: center;
         margin-left: 10px;
+        visibility: visible;
       }
       .file_list li .del:hover {
         color: #ff4d4f;
