@@ -162,22 +162,14 @@
         font-size: 13px;
       }
       .file_list li .del {
-        color: #ff9000;
         cursor: pointer;
-        font-style: normal;
-        margin-left: 10px;
-        opacity: 1;
-        display: inline-flex;
-        align-items: center;
-        padding: 4px 8px;
-        border-radius: 3px;
-        transition: all 0.2s ease;
-        background: rgba(255, 144, 0, 0.1);
-        min-height: 32px;
+        color: #ff9000;
+        font-size: 13px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
       }
       .file_list li .del:hover {
-        color: #ff4d4f;
-        background: rgba(255, 77, 79, 0.1);
+        opacity: 1;
       }
       .file_list li.dir a {
         text-decoration: underline;
@@ -299,107 +291,9 @@
           line-height: 1.4;
           flex-wrap: wrap;
           gap: 4px;
-        }
-
-        .file_list li a {
-          width: calc(100% - 100px);
-          font-size: 15px;
-          line-height: 24px;
-          padding: 4px 0;
-        }
-
-        .file_list li .size {
-          margin: 0;
-          font-size: 12px;
-          min-width: 50px;
-          text-align: right;
-        }
-
-        .file_list li .del {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          min-height: 44px;
-          padding: 8px 12px;
-          touch-action: manipulation;
-          -webkit-tap-highlight-color: transparent;
-        }
-
-        .file_list li .del:active {
-          background: rgba(255, 77, 79, 0.2);
-        }
-
-        .file_list li:before {
-          min-width: 50px;
-          padding: 0 8px;
-          line-height: 24px;
-          height: 24px;
-          font-size: 12px;
-          flex-shrink: 0;
-          margin-right: 8px;
-        }
-
-        .file_list li.dir a {
-          color: #ff9000;
-        }
-
-        /* 优化空文件夹提示 */
-        .empty-folder-hint {
-          padding: 30px 20px;
-          margin: 15px 0;
-        }
-
-        .empty-folder-hint i {
-          font-size: 32px;
-          margin-bottom: 10px;
-        }
-
-        .empty-folder-hint p {
-          font-size: 14px;
-        }
-
-        /* 触摸优化 */
-        a, button, .back {
-          touch-action: manipulation;
-          -webkit-touch-callout: none;
-        }
-
-        /* 优化加载状态 */
-        .loading {
-          padding: 20px;
-          text-align: center;
-          font-size: 14px;
-        }
-
-        /* 优化操作按钮布局 */
-        .operation-buttons {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-top: 8px;
-          width: 100%;
-        }
-
-        /* 优化文件信息显示 */
-        .file-info {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 12px;
-          color: #666;
-        }
-      }
-      @media screen and (max-width: 700px) {
-        /* 优化触摸交互 */
-        .file_list li {
-          position: relative;
-          padding: 8px 0;
-          line-height: 1.4;
-          flex-wrap: wrap;
-          gap: 4px;
           touch-action: pan-y;
           -webkit-tap-highlight-color: transparent;
+          border-bottom: 1px solid rgba(255, 144, 0, 0.1);
         }
 
         .file_list li a {
@@ -417,18 +311,45 @@
           right: 0;
           top: 50%;
           transform: translateY(-50%);
-          min-height: 44px;
           padding: 8px 12px;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 144, 0, 0.1);
+          border-radius: 3px;
           touch-action: manipulation;
           -webkit-tap-highlight-color: transparent;
+          transition: all 0.2s ease;
+        }
+
+        .file_list li .del:active {
+          background: rgba(255, 144, 0, 0.2);
+          transform: translateY(-50%) scale(0.96);
         }
 
         .file_list li:active {
           background: rgba(255, 144, 0, 0.05);
         }
 
-        .file_list li .del:active {
-          background: rgba(255, 144, 0, 0.2);
+        .file_list li:before {
+          min-width: 50px;
+          padding: 0 8px;
+          line-height: 24px;
+          height: 24px;
+          font-size: 12px;
+          flex-shrink: 0;
+          margin-right: 8px;
+          border-radius: 3px;
+        }
+
+        .file_list li .size {
+          margin: 0;
+          font-size: 12px;
+          min-width: 50px;
+          text-align: right;
+          color: #666;
+          padding-right: 70px;
         }
 
         /* 优化按钮触摸区域 */
@@ -436,94 +357,33 @@
           min-height: 44px;
           padding: 8px 16px;
           touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
+          transition: transform 0.2s ease;
+        }
+
+        .back:active, button:active {
+          transform: scale(0.96);
         }
 
         #btn-wrap button {
           min-height: 44px;
           padding: 8px 12px;
+          margin: 4px;
         }
 
         /* 优化搜索框 */
         input#search {
           height: 44px;
           font-size: 16px;
+          padding: 0 12px;
           border-radius: 4px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 144, 0, 0.2);
         }
 
-        /* 优化根目录选择 */
-        #rootdm {
-          height: 44px;
-          font-size: 16px;
-          border-radius: 4px;
-        }
-
-        /* 优化标题区域 */
-        h2 {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          padding: 12px 0;
-        }
-
-        h2 i {
-          width: 100%;
-          margin-bottom: 8px;
-          font-size: 14px;
-          color: #666;
-        }
-
-        /* 优化操作按钮组 */
-        .operation-buttons {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-          gap: 8px;
-          width: 100%;
-          margin-top: 8px;
-        }
-
-        /* 优化拖放区域 */
-        #drop-zone {
-          min-height: calc(100vh - 160px) !important;
-        }
-
-        .drag-hint {
-          padding: 16px;
-          margin: 12px 0;
-          font-size: 14px;
-          text-align: center;
-          background: rgba(255, 144, 0, 0.1);
-          border-radius: 8px;
-        }
-
-        /* 优化加载状态 */
-        #loading {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          padding: 12px 24px;
-          background: rgba(0, 0, 0, 0.8);
-          border-radius: 4px;
-          z-index: 1000;
-        }
-
-        /* 优化空状态 */
-        .empty-folder-hint {
-          padding: 32px 16px;
-          margin: 16px 0;
-          border: 2px dashed rgba(255, 144, 0, 0.3);
-          border-radius: 8px;
-          text-align: center;
-        }
-
-        .empty-folder-hint i {
-          font-size: 32px;
-          margin-bottom: 12px;
-        }
-
-        .empty-folder-hint p {
-          font-size: 14px;
-          line-height: 1.5;
+        input#search:focus {
+          border-color: rgba(255, 144, 0, 0.5);
+          outline: none;
         }
       }
       input {
@@ -747,27 +607,12 @@
       window.request = axios.create({
         baseURL: "https://api.github.com/",
         timeout: 30000,
-        retry: 3,
-        retryDelay: 1000,
+        headers: {
+          Authorization: "Bearer " + baseToken,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
       });
-
-      // 添加请求重试拦截器
-      request.interceptors.response.use(null, (error) => {
-        const config = error.config;
-        if (!config || !config.retry) return Promise.reject(error);
-        
-        config._retryCount = config._retryCount || 0;
-        
-        if (config._retryCount >= config.retry) {
-          return Promise.reject(error);
-        }
-        
-        config._retryCount += 1;
-        
-        return new Promise(resolve => setTimeout(resolve, config.retryDelay))
-          .then(() => request(config));
-      });
-
       request.interceptors.response.use(
         function (response) {
           console.log("请求成功", response);
@@ -871,8 +716,8 @@
             initFileList();
           })
           .catch((error) => {
-            hideLoading();
             console.error("获取目录失败:", error);
+            hideLoading();
             window.fileList = [];
             initFileList();
           });
@@ -896,7 +741,6 @@
       }
 
       function refresh() {
-        showLoading("正在刷新...");
         if (paths.length) {
           getDir(paths[paths.length - 1], false, null, true);
         } else {
@@ -912,85 +756,23 @@
 
       function delOne(path, sha) {
         if (path == "index.html") return alert("主页index.html不能被删除!");
-        if (window.confirm("是否确认删除此文件: " + path)) {
+        if (window.confirm("是否确认删除改文件: " + path)) {
           delFile(path, sha, true);
         }
       }
 
-      function delFile(path, sha, isTip) {
-        showLoading("正在删除...");
-        request
-          .delete(`/repos/${baseRepo}/contents/${path}`, {
-            params: {
-              message: now() + " del " + path,
-              sha,
-            },
-          })
-          .then(() => {
-            hideLoading();
-            if (isTip) alert("删除文件成功: " + path);
-            refresh();
-          })
-          .catch(error => {
-            hideLoading();
-            console.error("删除文件失败:", error);
-            alert("删除文件失败: " + (error.response?.data?.message || error.message));
-          });
-      }
-
-      // 文件上传事件监听改进
-      document.getElementById("file").addEventListener("change", (e) => {
+      // putContent('ip.txt', base64Str)
+      document.getElementById("file").addEventListener("input", (e) => {
         const file = e.target.files[0];
-        if (!file) return;
-        
-        const maxSize = 100 * 1024 * 1024; // 100MB
-        if (file.size > maxSize) {
-          alert("文件大小不能超过100MB");
-          e.target.value = "";
-          return;
-        }
-        
-        putFile(
-          paths.length
-            ? paths[paths.length - 1] + "/" + file.name
-            : file.name,
-          file
-        );
-        e.target.value = "";
+        if (file)
+          putFile(
+            paths.length
+              ? paths[paths.length - 1] + "/" + file.name
+              : file.name,
+            file
+          );
+        document.getElementById("file").value = "";
       });
-
-      function putDir(path) {
-        showLoading("正在创建目录...");
-        const data = {
-          message: now() + " create dir " + path,
-          content: "",
-        };
-
-        getContent(path)
-          .then((res) => {
-            if (Array.isArray(res)) {
-              hideLoading();
-              return alert("该目录已存在");
-            }
-            return request
-              .put(
-                `/repos/${baseRepo}/contents/${path}${
-                  path.endsWith("/") ? "" : "/"
-                }.init`,
-                data
-              )
-              .then(() => {
-                hideLoading();
-                alert("新建目录成功: " + path);
-                refresh();
-              });
-          })
-          .catch((error) => {
-            hideLoading();
-            console.error("创建目录失败:", error);
-            alert("创建目录失败: " + (error.response?.data?.message || error.message));
-          });
-      }
 
       function updateRepo() {
         const val = prompt(
@@ -1052,6 +834,44 @@
           if (sha) data.sha = sha;
           request.put(`/repos/${baseRepo}/contents/${path}`, data);
         });
+      }
+
+      function putDir(path) {
+        const data = {
+          message: now() + " create dir " + path,
+          content: "",
+        };
+
+        getContent(path).then((res) => {
+          if (Array.isArray(res)) return alert("该目录已存在");
+          request
+            .put(
+              `/repos/${baseRepo}/contents/${path}${
+                path.endsWith("/") ? "" : "/"
+              }.init`,
+              data
+            )
+            .then(() => {
+              alert("新建目录成功: " + path);
+              refresh();
+            });
+        });
+      }
+
+      function delFile(path, sha, isTip) {
+        // getSha(path).then((sha) => {
+        // }).catch((e) => console.log('not exit file: ' + path))
+        request
+          .delete(`/repos/${baseRepo}/contents/${path}`, {
+            params: {
+              message: now() + " del " + path,
+              sha,
+            },
+          })
+          .then(() => {
+            if (isTip) alert("删除文件成功:" + path);
+            refresh();
+          });
       }
 
       // 添加文件上传队列管理
